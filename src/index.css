@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+span {
+    display: inline-block;
+    width: 15%;
+    float: right;
+}
+
+a {
+  color: #000;
+}
+a:hover {
+   color: #00F
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.iframe-container {
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+}
+ 
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
