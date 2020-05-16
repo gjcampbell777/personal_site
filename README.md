@@ -2,6 +2,8 @@ This is the source code for my [Personal Website](https://gregoryjcampbell.com).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+The website is being hosted through [Netlify](https://www.netlify.com).
+
 ## Available Scripts
 
 In the project directory, you can run:
