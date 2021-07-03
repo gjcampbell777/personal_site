@@ -1,9 +1,9 @@
 import React from 'react'
-import MJB1 from './assets/MJB1.jpg'
-import MJB2 from './assets/MJB2.jpg'
-import MJB3 from './assets/MJB3.jpg'
-import MJB4 from './assets/MJB4.jpg'
-import MJB5 from './assets/MJB5.jpg'
+import MJB from './assets/MJB.jpg'
+import GC from './assets/GunControl.png'
+import Palish from './assets/Palish.png'
+import SRS from './assets/SRS.png'
+import WH from './assets/W&H.png'
 
 export const Projects = () => (
 	<div>
@@ -33,49 +33,41 @@ export const Projects = () => (
 
 		<br/>
 
-		<h3> <a href="https://gregorysoup.itch.io/Magical-Jumping-Bean">Magical Jumping Bean</a> </h3>
+		<h3> <a href="https://gregorysoup.itch.io">My Many Games</a> </h3>
 
 		<br/>
 
-		<p>I created a fast paced 3D third person paltformer where the player takes control of a bean that wants to go as fast as possible!
-		I features a hub world that can be used for training and practice, 3 game modes - all of which utilize different procedural level generation
-		and a high score system so you can keep track how well you do after the end of each game.
-		The game can be played with a mouse and keyboard or with an xbox controller (highly recommened) so you can learn and perfect the 
-		extensive move set of the game and go as fast as possible. This can runs on Windows, OSX and Linux.
-		Below are a few screenshots and a video to help you understand how the game works.
-		If you want to see more you can check out the game page&nbsp;
-		<a href="https://gregorysoup.itch.io/Magical-Jumping-Bean">Here</a>.
+		<p>Over the course of the last few years I've made a handful of games on my own that I've posted to itch.io.
+		I've always been interested in game developement and I use this as a way to experiment and 
+		create games I would like to play myself. The fact that I've made all these games on my own allows me
+		to go at my own pace as well as learn every aspect there is to this type of development while still being able to put my own charm into each game I make.
+		I've worked on a fast paced endless runner 3D platformer, a 2D turn based combat puzzle and many game jam games.
+		I continue to explore and create new game ideas as they pop into my head, so be sure to be on the look out for what I make next.
+		I've also made the code for all of my free games viewable to the public through <a href="https://github.com/gjcampbell777">My Github</a> if you want to look at my code.
+		If you want to check out any of my pages you can click 
+		<a href="https://gregorysoup.itch.io"> Here </a> 
+		to be brought to my itch.io page where you can play any of my games through your browser or download them.
 		</p>
 
 		<br/>
 
-		<img src={MJB1} alt="MJB1"/>
+		<img src={MJB} alt="MJB"/>
 
 		<br/>
 
-		<img src={MJB2} alt="MJB2"/>
+		<img src={WH} alt="WH"/>
 
 		<br/>
 
-		<img src={MJB3} alt="MJB3"/>
+		<img src={SRS} alt="SRS"/>
 
 		<br/>
 
-		<img src={MJB4} alt="MJB4"/>
+		<img src={Palish} alt="Palish"/>
 
 		<br/>
 
-		<img src={MJB5} alt="MJB5"/>
-
-		<br/>
-
-		<div class="iframe-container">
-			<iframe title="MJB Video"
-			src="https://www.youtube.com/embed/KJif6-wVL98" frameborder="0" 
-			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-			allowfullscreen>
-			</iframe>
-		</div>
+		<img src={GC} alt="GC"/>
 
 		<br/>
 		
