@@ -5,6 +5,9 @@ import Palish from './assets/Palish.png'
 import SRS from './assets/SRS.png'
 import WH from './assets/W&H.png'
 import StateMachine from './assets/StateMachine.png'
+import Skin2 from './assets/skin2.png'
+import HSV from './assets/HSV.png'
+
 
 export const Projects = () => (
 	<div>
@@ -44,6 +47,29 @@ export const Projects = () => (
 
 		<img src={StateMachine} alt="StateMachine"/>
 
+		<br/><br/>
+
+		<h3> <a href="https://github.com/gjcampbell777/python-photo-skin-detection">Python Skin Detection Algorithms</a> </h3>
+
+		<br/>
+
+		<p>In an image processing course I took in university we were tasked with replicating multiple skin detection algorithms through a python script.
+		I enjoyed working on that assignment and was fascinated by how well (or not so well) a program is able to detect things that we as humans can figure out easily.
+		It's one of the few assignments I worked on in university that I can still remember quite well so I figured I'd find it wherever I had saved it
+		and clean it up as well as make sure it can run with python3.
+		You can check out my code and run your own photos through the script by checking out the repo <a href="https://github.com/gjcampbell777/python-photo-skin-detection">Here</a>.
+		</p>
+
+		<img src={Skin2} alt="Before"/>
+
+		<p>Before going through the algorithm</p>
+
+		<br/>
+
+		<img src={HSV} alt="After"/>
+
+		<p>After going through the HSV algorithm</p>
+
 		<br/>
 
 		<h3> <a href="https://gregorysoup.itch.io">My Many Games</a> </h3>
@@ -56,6 +82,8 @@ export const Projects = () => (
 		to go at my own pace as well as learn every aspect there is to this type of development while still being able to put my own charm into each game I make.
 		I've worked on a fast paced endless runner 3D platformer, a 2D turn based combat puzzle and many game jam games.
 		I continue to explore and create new game ideas as they pop into my head, so be sure to be on the look out for what I make next.
+		Any game I've worked on has either been created using Unity or Godot. 
+		(I'm a bigger fan of Godot nowadays so I'd imagine all game developement projects in the future will be created using Godot.)
 		I've also made the code for all of my free games viewable to the public through <a href="https://github.com/gjcampbell777">My Github</a> if you want to look at my code.
 		If you want to check out any of my games you can click <a href="https://gregorysoup.itch.io">Here</a> to 
 		be brought to my itch.io page where you can play any of my games through your browser or download them.

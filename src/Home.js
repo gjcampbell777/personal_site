@@ -1,4 +1,5 @@
 import React from 'react'
+import Me from './assets/Me.jpg'
 
 export const Home = () => (
 	<div>
@@ -24,25 +25,29 @@ export const Home = () => (
 		<p></p>
 
 		<ul>
-			<li>I also added a html and downloadable .pdf version of my resume in the &quot;Resume&quot; page, feel free to give it a look!</li>
+			<li>I also added a html and downloadable .pdf version of my resume in the <a href="https://gregoryjcampbell.com/Resume">Resume</a> page, feel free to give it a look!</li>
 		</ul>
 
 		<p></p>
 
 		<ul>
-			<li>Some game development work that I'm very proud of! Check it out in the respective tab.</li>
+			<li>The many projects that I've mosted in the <a href="https://gregoryjcampbell.com/Projects">Projects</a> tab, go check it out!</li>
 		</ul>
 
 		<p></p>
 
 		<blockquote></blockquote>
 
+		<br/>
+
+		<img src={Me} alt="It's Me!"/>
+
+		<br/>
+
 		<hr />
 		<h2>Where to Reach Me</h2>
 
-		<p>Check out my career indevours at<br/>
-		<a href="https://www.linkedin.com/in/gregoryjcampbell/">My LinkedIn Profile</a>,&nbsp; 
-		<a href="https://www.hackerrank.com/gjcampbell777">My HackerRank Profile</a>,&nbsp; 
+		<p>Check out my many endeavours at <a href="https://www.linkedin.com/in/gregoryjcampbell/">My LinkedIn Profile</a>,&nbsp;  
 		<a href="https://github.com/gjcampbell777">My Github</a>,&nbsp;
 		<a href="https://gregorysoup.itch.io/">My Itch Page</a> and&nbsp; 
 		<a href="https://twitter.com/Gregory_Soup">My Twitter</a></p>
