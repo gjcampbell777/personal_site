@@ -4,6 +4,7 @@ import GC from './assets/GunControl.png'
 import Palish from './assets/Palish.png'
 import SRS from './assets/SRS.png'
 import WH from './assets/W&H.png'
+import StateMachine from './assets/StateMachine.png'
 
 export const Projects = () => (
 	<div>
@@ -30,6 +31,21 @@ export const Projects = () => (
 		</h4>
 
 		<hr/>
+		<h3> <a href="https://github.com/gjcampbell777/python-state-machine">Python State Machine</a> </h3>
+
+		<br/>
+
+		<p>Recently while going through Godot documentation I came across a tutorial for building your own state machine with Python.
+		I've always been interested in making a stand alone state machine and state machines are a big part of game developement
+		so I figured it would be a good idea for me to check it out. After I finished the tutorial I decided to continue working on
+		and fleshing out this state machine used to emulate a locked/unlocked device.
+		You can check out my code and mess around with the state machine yourself
+		<a href="https://github.com/gjcampbell777/python-state-machine"> Here </a>.
+		</p>
+
+		<br/>
+
+		<img src={StateMachine} alt="StateMachine"/>
 
 		<br/>
 
