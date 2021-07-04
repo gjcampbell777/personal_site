@@ -39,11 +39,8 @@ export const Projects = () => (
 		I've always been interested in making a stand alone state machine and state machines are a big part of game developement
 		so I figured it would be a good idea for me to check it out. After I finished the tutorial I decided to continue working on
 		and fleshing out this state machine used to emulate a locked/unlocked device.
-		You can check out my code and mess around with the state machine yourself
-		<a href="https://github.com/gjcampbell777/python-state-machine"> Here </a>.
+		You can check out my code and mess around with the state machine yourself <a href="https://github.com/gjcampbell777/python-state-machine">Here</a>.
 		</p>
-
-		<br/>
 
 		<img src={StateMachine} alt="StateMachine"/>
 
@@ -60,9 +57,8 @@ export const Projects = () => (
 		I've worked on a fast paced endless runner 3D platformer, a 2D turn based combat puzzle and many game jam games.
 		I continue to explore and create new game ideas as they pop into my head, so be sure to be on the look out for what I make next.
 		I've also made the code for all of my free games viewable to the public through <a href="https://github.com/gjcampbell777">My Github</a> if you want to look at my code.
-		If you want to check out any of my pages you can click 
-		<a href="https://gregorysoup.itch.io"> Here </a> 
-		to be brought to my itch.io page where you can play any of my games through your browser or download them.
+		If you want to check out any of my games you can click <a href="https://gregorysoup.itch.io">Here</a> to 
+		be brought to my itch.io page where you can play any of my games through your browser or download them.
 		</p>
 
 		<br/>
