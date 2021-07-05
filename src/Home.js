@@ -8,9 +8,9 @@ export const Home = () => (
 		</head>
 		<body>
 
-		<h2>This site contains the projects I've done over the past, present and future.</h2>
+		<h2>This site contains the projects I've done over the past, present and future and everything else about me!</h2>
 
-		<p>I know this page is currently empty, but I do plan on adding and personalizing this space with projects I'm working on and maybe adding blog posts to give updates and verticle slices of projects I'm currently developing. Whatever ends up here I hope you enjoy it.</p>
+		<p> Whatever ends up here I hope you enjoy it.</p>
 
 		<h3>Finished Projects Viewable on this site:</h3>
 
