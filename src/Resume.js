@@ -30,7 +30,7 @@ export const Resume = () => (
 
 		<h3><u>Profile:</u></h3>
 
-		<p>A highly motivated and team focused software developer seeking an exciting and challenging role in a Software Development organization creating solutions utilizing technical, analytical and interpersonal skills.</p>
+		<p>Highly motivated and team-focused software developer with 4+ years of experience developing code and creating test environments and infrastructure.</p>
 
 		<br/>
 
@@ -72,7 +72,7 @@ export const Resume = () => (
 			<li>Programming Languages: Elixir, C, C#, Java, Python, Fortran, Ada, Cobol</li>
 			<li>Web Design and Coding: HTML, Javascript, ReactJs, CSS, Node.js, JQuery</li>
 			<li>Software Environments: Windows, Mac, Linux, Unity, Godot, VirtualBox, Terminal/Console</li>
-			<li>Various automation tools such as Bash, Testcafe, ExUnit, Jenkins, GItlab CI and Python scripting</li>
+			<li>Various automation tools such as Bash, Testcafe, ExUnit, Jenkins, Gitlab CI and Python scripting</li>
 			<li>Knowledge and experience with computer security, security vulnerabilities and security testing</li>
 			<li>Well versed in application design, development and testing within an agile development cycle</li>
 			<li>Expertise using SVN such as Github, Gitlab and Bitbucket within team and solo projects</li>
