@@ -1,5 +1,6 @@
 import React from 'react'
 import pdf from './assets/Gregory Campbell Resume.pdf'
+import pic from './assets/Resume.png'
 
 export const Resume = () => (
 	<div>
@@ -18,6 +19,18 @@ export const Resume = () => (
 		<h2>Downloadable PDF</h2>
 
 		<p>You can view and download a .pdf verison of my resume <a href={pdf}>Here</a></p>
+
+		<br/>
+
+		<h2><u>Resume</u></h2>
+
+		<br/>
+
+		<img src={pic} alt="Resume"/>
+
+		<br/>
+
+		<h2><u>Written Resume</u></h2>
 
 		<br/>
 
