@@ -7,6 +7,8 @@ import WH from './assets/W&H.png'
 import StateMachine from './assets/StateMachine.png'
 import Skin2 from './assets/skin2.png'
 import HSV from './assets/HSV.png'
+import EulerCycle from './assets/EulerCycle.png'
+import EulerExample from './assets/EulerExample.png'
 
 
 export const Projects = () => (
@@ -69,6 +71,32 @@ export const Projects = () => (
 		<img src={HSV} alt="After"/>
 
 		<p>After going through the HSV algorithm</p>
+
+		<br/>
+
+		<h3> <a href="https://github.com/gjcampbell777/euler-checking-algorithm">Euler Checking Algorithm</a> </h3>
+
+		<p>In a course I took in university we were tasked checking if a graph was Eulerian or not.
+		Much like the Python Skin Detection assignment this was also an assignment I could still remember
+		from those days and wanted to re-explore and improve upon.
+		This C algorithm takes the text file euler-graphs.txt and runs through the input to determine if its contents contain a Euler graph. 
+		The algorithm checks the initial line of a graph to determine the length of the graph and 
+		uses that information to know how many lines it must go through to gather all the info of the graph. 
+		It will repeat this process until it reaches EOF.
+		You can check out my code through the script by checking out the repo <a href="https://github.com/gjcampbell777/euler-checking-algorithm">Here</a>.
+		</p>
+
+		<br/>
+
+		<img src={EulerExample} alt="EulerExample"/>
+
+		<p>Example of a graph from euler-graphs.txt</p>
+
+		<br/>
+
+		<img src={EulerCycle} alt="EulerCycle"/>
+
+		<p>Output from running the algorithm with euler-graphs.txt</p>
 
 		<br/>
 
