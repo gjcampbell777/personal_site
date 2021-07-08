@@ -40,7 +40,7 @@ export const Home = () => (
 
 		<br/>
 
-		<img src={Me} alt="It's Me!" width="500"/>
+		<img src={Me} alt="It's Me!" className="homeimage"/>
 
 		<br/>
 

@@ -18,9 +18,10 @@ span {
     float: right;
 }
 
-a {
+a{
   color: #000;
 }
+
 a:hover {
    color: #219837 
 }
@@ -30,6 +31,13 @@ img {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+}
+
+.homeimage{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
 }
 
 .iframe-container {
