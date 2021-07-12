@@ -8,9 +8,9 @@ export const Home = () => (
 		</head>
 		<body>
 
-		<h2>This site contains the projects I've done over the past, present and future and everything else about me!</h2>
+		<h2>Welcome to the personal website of Gregory Campbell</h2>
 
-		<p> Whatever ends up here I hope you enjoy it.</p>
+		<p>I hope you enjoy everything it has to offer</p>
 
 		<h3>Finished Projects Viewable on this site:</h3>
 
@@ -45,12 +45,6 @@ export const Home = () => (
 		<br/>
 
 		<hr />
-		<h2>Where to Reach Me</h2>
-
-		<p>Check out my many endeavours at <a href="https://www.linkedin.com/in/gregoryjcampbell/">My LinkedIn Profile</a>,&nbsp;  
-		<a href="https://github.com/gjcampbell777">My Github</a>,&nbsp;
-		<a href="https://gregorysoup.itch.io/">My Itch Page</a> and&nbsp; 
-		<a href="https://twitter.com/Gregory_Soup">My Twitter</a></p>
 		</body>
 	</div>
   )
