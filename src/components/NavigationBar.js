@@ -13,7 +13,7 @@ const Styles = styled.div`
   	color: #000;
   
   	&:hover{
-  		color:black;
+  		color:#219837;
   	}
   }
 `;
@@ -21,30 +21,30 @@ const Styles = styled.div`
 export const NavigationBar = () => (
 	<Styles>
 		<Navbar expand="lg" color='light-blue lighten-4'>
-			<Navbar.Brand href="/">GC</Navbar.Brand>
+			<Navbar.Brand as={Link} to="/">GC</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
-				<Nav classname="ml-auto">
+				<Nav classname="navbar-link">
 					<Nav.Item>
-			          <Nav.Link>
-			            <Link to="/">Home</Link>
-			          </Nav.Link>
-			        </Nav.Item>
-			        <Nav.Item>
-			          <Nav.Link>
-			            <Link to="/Resume">Resume</Link>
-			          </Nav.Link>
-			        </Nav.Item>
-			        <Nav.Item>
-			          <Nav.Link>
-			            <Link to="/Projects">Projects</Link>
-			          </Nav.Link>
-			        </Nav.Item>
-			        <Nav.Item>
-			          <Nav.Link>
-			            <Link to="/Contact">Contact</Link>
-			          </Nav.Link>
-			        </Nav.Item>
+	          <Nav.Link as={Link} to="/">
+	            <Link to="/">Home</Link>
+	          </Nav.Link>
+	        </Nav.Item>
+	        <Nav.Item>
+	          <Nav.Link as={Link} to="/Resume">
+	            <Link to="/Resume">Resume</Link>
+	          </Nav.Link>
+	        </Nav.Item>
+	        <Nav.Item>
+	          <Nav.Link as={Link} to="/Projects">
+	            <Link to="/Projects">Projects</Link>
+	          </Nav.Link>
+	        </Nav.Item>
+	        <Nav.Item>
+	          <Nav.Link as={Link} to="/Contact">
+	            <Link to="/Contact">Contact</Link>
+	          </Nav.Link>
+	        </Nav.Item>
 				</Nav>
 			</Navbar.Collapse>
 		</Navbar>
