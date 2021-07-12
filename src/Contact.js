@@ -33,6 +33,13 @@ export const Contact = () => (
 		<h2>LinkedIn:&nbsp;
 		<a href="https://www.linkedin.com/in/gregoryjcampbell/">Gregory J Campbell</a> 
 		</h2>
+
+		<br/>
+		<br/>
+		<br/>
+
+		<hr />
+
 		</body>
 	</div>
   )

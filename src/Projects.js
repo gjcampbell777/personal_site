@@ -225,6 +225,8 @@ export const Projects = () => (
 		<img src={GC} alt="GC"/>
 
 		<br/>
+
+		<hr />
 		
 		</body>
 	</div>
