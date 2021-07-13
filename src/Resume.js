@@ -84,7 +84,7 @@ export const Resume = () => (
 		<ul>
 			<li>Programming Languages: Elixir, C, C#, Java, Python, Fortran, Ada, Cobol</li>
 			<li>Web Design and Coding: HTML, Javascript, ReactJs, CSS, Node.js, JQuery</li>
-			<li>Software Environments: Windows, Mac, Linux, Unity, Godot, VirtualBox, Terminal/Console</li>
+			<li>Software Environments: Windows, Mac, Linux, Unity, Godot, VirtualBox, Terminal/Console, Docker</li>
 			<li>Various automation tools such as Bash, Testcafe, ExUnit, Jenkins, Gitlab CI and Python scripting</li>
 			<li>Knowledge and experience with computer security, security vulnerabilities and security testing</li>
 			<li>Well versed in application design, development and testing within an agile development cycle</li>
