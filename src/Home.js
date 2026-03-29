@@ -1,5 +1,5 @@
 import React from 'react'
-import Me from './assets/Me.jpg'
+import Me from './assets/Me.jpeg'
 
 export const Home = () => (
 	<div>
