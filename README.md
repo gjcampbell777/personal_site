@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b9a5df97-64f4-4888-8d76-548e77e029ae/deploy-status)](https://app.netlify.com/projects/gregoryjcampbell/deploys)
+
 This is the source code for my [Personal Website](https://gregoryjcampbell.com).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
