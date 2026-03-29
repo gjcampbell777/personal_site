@@ -1,8 +1,6 @@
 import React from "react";
 import github from "./../assets/GitHub_Logo.png";
 import linkedin from "./../assets/LI-Logo.png";
-import twitter from "./../assets/Twitter-Logo.png";
-import itch from "./../assets/itchio-logo-black.png";
 
 const Footer = () => {
   return (
