@@ -32,28 +32,6 @@ const Footer = () => {
                 />
               </a>
             </li>
-            <li>
-              <a href="https://twitter.com/Gregory_Soup">
-                <img
-                  src={twitter}
-                  alt="Twitter Logo"
-                  height="auto"
-                  width="100%"
-                  style={{ maxWidth: "45px" }}
-                />
-              </a>
-            </li>
-            <li>
-              <a href="https://gregorysoup.itch.io/">
-                <img
-                  src={itch}
-                  alt="Itch Logo"
-                  height="auto"
-                  width="100%"
-                  style={{ maxWidth: "100px" }}
-                />
-              </a>
-            </li>
           </ul>
         </div>
       </nav>
