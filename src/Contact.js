@@ -26,10 +26,6 @@ export const Contact = () => (
 		<a href="tel:6477797951">(647)-779-7951</a>  
 		</h2>
 
-		<h2>Twitter:&nbsp;
-		<a href="https://twitter.com/Gregory_Soup">@Gregory_Soup</a>
-		</h2>
-
 		<h2>LinkedIn:&nbsp;
 		<a href="https://www.linkedin.com/in/gregoryjcampbell/">Gregory J Campbell</a> 
 		</h2>

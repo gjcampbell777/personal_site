@@ -25,13 +25,13 @@ export const Home = () => (
 		<p></p>
 
 		<ul>
-			<li>I also added a html and downloadable .pdf version of my resume in the <a href="https://gregoryjcampbell.com/Resume">Resume</a> page, feel free to give it a look!</li>
+			<li>I also added a html and downloadable .pdf version of my resume in the resume page, feel free to give it a look!</li>
 		</ul>
 
 		<p></p>
 
 		<ul>
-			<li>The many projects that I've mosted in the <a href="https://gregoryjcampbell.com/Projects">Projects</a> tab, go check it out!</li>
+			<li>The many projects that I've mosted in the projects tab, go check it out!</li>
 		</ul>
 
 		<p></p>
