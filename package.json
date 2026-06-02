@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.11.1",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.0.11",
+    "aws-amplify": "^6.17.0",
     "bootstrap": "^5.0.0",
     "immer": "9.0.6",
     "ini": "2.0.0",
@@ -42,5 +43,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@aws-amplify/backend": "^1.23.0",
+    "@aws-amplify/backend-cli": "^1.8.3",
+    "aws-cdk-lib": "^2.244.0",
+    "constructs": "^10.6.0",
+    "esbuild": "^0.28.0",
+    "tsx": "^4.22.4",
+    "typescript": "^5.9.3"
   }
 }
