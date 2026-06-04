@@ -1,3 +1,36 @@
+# personal_site
+
+This repository is a React-based personal website for Gregory Campbell.
+
+Quick commands
+
+```bash
+# install deps (use legacy peer deps if you hit TypeScript/react-scripts conflicts)
+npm install --legacy-peer-deps
+
+# run dev server
+npm start
+
+# build production
+npm run build
+
+# optimize images (requires sharp)
+# install sharp (one-time):
+npm run optimize-images:install
+# then run optimization:
+npm run optimize-images
+```
+
+Image optimization
+
+This repo includes `scripts/optimize-images.js`, a small Node script that uses `sharp` to generate WebP resized variants for images found in `src/assets`. The script writes outputs to `public/images` by default.
+
+If you prefer a different pipeline, consider using `imagemin` or a CI-integrated image optimization step.
+
+Deployment / Amplify notes
+
+- The project uses `package-lock.json` (npm) — ensure CI is configured to use `npm install` and not `yarn`.
+- If deploying via AWS Amplify and it errors with multiple lockfiles, ensure only one lockfile (package-lock.json) is present.
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b9a5df97-64f4-4888-8d76-548e77e029ae/deploy-status)](https://app.netlify.com/projects/gregoryjcampbell/deploys)
 
 This is the source code for my [Personal Website](https://gregoryjcampbell.netlify.app/).
