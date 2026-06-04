@@ -1,11 +1,12 @@
 import React from 'react';
 
 export const ProjectCard = ({ title, description, imgSrc, imgName, imgAlt, link, children }) => {
+  const publicUrl = process.env.PUBLIC_URL || '.';
   const webpSources = imgName
-    ? `${process.env.PUBLIC_URL}/images/${imgName}-320.webp 320w, ${process.env.PUBLIC_URL}/images/${imgName}-640.webp 640w, ${process.env.PUBLIC_URL}/images/${imgName}-1024.webp 1024w`
+    ? `${publicUrl}/images/${imgName}-320.webp 320w, ${publicUrl}/images/${imgName}-640.webp 640w, ${publicUrl}/images/${imgName}-1024.webp 1024w`
     : null;
 
-  const srcFallback = imgName ? `${process.env.PUBLIC_URL}/images/${imgName}-640.webp` : imgSrc;
+  const srcFallback = imgName ? `${publicUrl}/images/${imgName}-640.webp` : imgSrc;
 
   return (
     <article className="project-card">

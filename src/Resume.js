@@ -26,8 +26,8 @@ export const Resume = () => {
       <section>
         <h2>Written Resume</h2>
         <img
-          src={`${process.env.PUBLIC_URL}/images/Resume-640.webp`}
-          srcSet={`${process.env.PUBLIC_URL}/images/Resume-320.webp 320w, ${process.env.PUBLIC_URL}/images/Resume-640.webp 640w, ${process.env.PUBLIC_URL}/images/Resume-1024.webp 1024w`}
+          src={`${process.env.PUBLIC_URL || '.'}/images/Resume-640.webp`}
+          srcSet={`${process.env.PUBLIC_URL || '.'}/images/Resume-320.webp 320w, ${process.env.PUBLIC_URL || '.'}/images/Resume-640.webp 640w, ${process.env.PUBLIC_URL || '.'}/images/Resume-1024.webp 1024w`}
           sizes="(max-width: 600px) 100vw, 640px"
           alt="Resume preview"
           loading="lazy"

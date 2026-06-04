@@ -2,6 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 export const Home = () => {
+  const publicUrl = process.env.PUBLIC_URL || '.';
+
   return (
     <main className="home-page">
       <Helmet>
@@ -25,8 +27,8 @@ export const Home = () => {
 
       <section>
         <img
-          src={`${process.env.PUBLIC_URL}/images/Me-640.webp`}
-          srcSet={`${process.env.PUBLIC_URL}/images/Me-320.webp 320w, ${process.env.PUBLIC_URL}/images/Me-640.webp 640w, ${process.env.PUBLIC_URL}/images/Me-1024.webp 1024w`}
+          src={`${publicUrl}/images/Me-640.webp`}
+          srcSet={`${publicUrl}/images/Me-320.webp 320w, ${publicUrl}/images/Me-640.webp 640w, ${publicUrl}/images/Me-1024.webp 1024w`}
           sizes="(max-width: 600px) 100vw, 640px"
           alt="Portrait of Gregory Campbell"
           className="homeimage"
