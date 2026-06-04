@@ -4,11 +4,7 @@ applications:
       phases:
         preBuild:
           commands:
-            - node -v
-            - npm -v
-            - npm i -g npm@8
-            - npm -v
-            - npm install --legacy-peer-deps
+            - npm ci --legacy-peer-deps
             - npm run optimize-images
         build:
           commands:
