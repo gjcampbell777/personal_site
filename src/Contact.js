@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 export const Contact = () => {
-  useEffect(() => {
-    document.title = 'Contact Gregory Campbell';
-  }, []);
-
   return (
     <main className="contact-page">
+      <Helmet>
+        <title>Contact Gregory Campbell</title>
+        <meta name="description" content="Contact details for Gregory Campbell." />
+      </Helmet>
+
       <header>
         <h1>How to Reach Me</h1>
         <p>Give me a shout!</p>

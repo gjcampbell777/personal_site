@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { Home } from './Home';
 import { Resume } from './Resume';
 import { Projects } from './Projects';
@@ -11,20 +12,22 @@ import { Jumbotron } from './components/Jumbotron';
 import Footer from './components/Footer';
 
 const App = () => (
-  <Router>
-    <NavigationBar />
-    <Jumbotron />
-    <Layout>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/Resume" component={Resume} />
-        <Route path="/Projects" component={Projects} />
-        <Route path="/Contact" component={Contact} />
-        <Route component={NoMatch} />
-      </Switch>
-    </Layout>
-    <Footer />
-  </Router>
+  <HelmetProvider>
+    <Router>
+      <NavigationBar />
+      <Jumbotron />
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/Resume" component={Resume} />
+          <Route path="/Projects" component={Projects} />
+          <Route path="/Contact" component={Contact} />
+          <Route component={NoMatch} />
+        </Switch>
+      </Layout>
+      <Footer />
+    </Router>
+  </HelmetProvider>
 );
 
 export default App;

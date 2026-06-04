@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import pdf from './assets/Gregory Campbell Resume.pdf';
 import pic from './assets/Resume.png';
 
 export const Resume = () => {
-  useEffect(() => {
-    document.title = 'The Resume of Gregory Campbell';
-  }, []);
-
   return (
     <main className="resume-page">
+      <Helmet>
+        <title>The Resume of Gregory Campbell</title>
+        <meta name="description" content="Resume and professional experience of Gregory Campbell." />
+      </Helmet>
+
       <header>
         <h1>My Resume</h1>
         <p>Check out everything I have accomplished in my career.</p>
@@ -24,7 +26,7 @@ export const Resume = () => {
 
       <section>
         <h2>Written Resume</h2>
-        <img src={pic} alt="Resume preview" />
+        <img src={pic} alt="Resume preview" loading="lazy" decoding="async" />
       </section>
 
       <section>
