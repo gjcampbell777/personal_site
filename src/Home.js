@@ -28,7 +28,6 @@ export const Home = () => {
         <img
           src={meImage}
           alt="Portrait of Gregory Campbell"
-          className="homeimage"
           loading="lazy"
           decoding="async"
         />
