@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import pdf from './assets/Gregory Campbell Resume.pdf';
+import resumeImage from './assets/Resume.png';
 
 export const Resume = () => {
   return (
@@ -26,9 +27,7 @@ export const Resume = () => {
       <section>
         <h2>Written Resume</h2>
         <img
-          src={`${process.env.PUBLIC_URL || '.'}/images/Resume-640.webp`}
-          srcSet={`${process.env.PUBLIC_URL || '.'}/images/Resume-320.webp 320w, ${process.env.PUBLIC_URL || '.'}/images/Resume-640.webp 640w, ${process.env.PUBLIC_URL || '.'}/images/Resume-1024.webp 1024w`}
-          sizes="(max-width: 600px) 100vw, 640px"
+          src={resumeImage}
           alt="Resume preview"
           loading="lazy"
           decoding="async"
