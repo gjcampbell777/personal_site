@@ -1,22 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
-export const NoMatch = () => (
-	<div>
-	    <head>
-			<title>404 ERROR</title>
-		</head>
-		<body>
-		<header>
-		<h1>404 ERROR</h1>
+export const NoMatch = () => {
+  return (
+    <main className="notfound-page">
+      <Helmet>
+        <title>404 Error</title>
+      </Helmet>
 
-		<aside>Hey, you shouldn't be here!</aside>
-		</header>
-
-		<br/>
-
-		<h2>Don't know how you got here but you should probably turn around and head back.</h2>
-
-		<p>There's nothing here!</p>
-		</body>
-	</div>
-  )
+      <header>
+        <h1>404 ERROR</h1>
+        <p>Hey, you shouldn't be here!</p>
+      </header>
+      <section>
+        <p>Don't know how you got here, but you should probably head back.</p>
+      </section>
+    </main>
+  );
+};

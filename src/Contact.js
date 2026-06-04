@@ -1,45 +1,27 @@
-import React from 'react'
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
-export const Contact = () => (
-	<div>
-	    <head>
-			<title>Contact Info</title>
-		</head>
-		<body>
-		<header>
-		<h1>How to Reach Me</h1>
+export const Contact = () => {
+  return (
+    <main className="contact-page">
+      <Helmet>
+        <title>Contact Gregory Campbell</title>
+        <meta name="description" content="Contact details for Gregory Campbell." />
+      </Helmet>
 
-		<aside>Give me a shout!</aside>
-		</header>
+      <header>
+        <h1>How to Reach Me</h1>
+        <p>Give me a shout!</p>
+      </header>
 
-		<br/>
-
-		<h2>Contact Info:</h2>
-
-		<br/>
-
-		<h2>Email:&nbsp;
-		<a href="mailto:gjcampbell777@gmail.com">gjcampbell777@gmail.com </a> 
-		</h2>
-
-		<h2>Cell #:&nbsp;
-		<a href="tel:6477797951">(647)-779-7951</a>  
-		</h2>
-
-		<h2>Twitter:&nbsp;
-		<a href="https://twitter.com/Gregory_Soup">@Gregory_Soup</a>
-		</h2>
-
-		<h2>LinkedIn:&nbsp;
-		<a href="https://www.linkedin.com/in/gregoryjcampbell/">Gregory J Campbell</a> 
-		</h2>
-
-		<br/>
-		<br/>
-		<br/>
-
-		<hr />
-
-		</body>
-	</div>
-  )
+      <section>
+        <h2>Contact Info</h2>
+        <ul className="contact-list">
+          <li>Email: <a href="mailto:gjcampbell777@gmail.com">gjcampbell777@gmail.com</a></li>
+          <li>Phone: <a href="tel:6477797951">(647) 779-7951</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/gregoryjcampbell/" target="_blank" rel="noreferrer noopener">Gregory J Campbell</a></li>
+        </ul>
+      </section>
+    </main>
+  );
+};

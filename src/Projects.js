@@ -1,236 +1,153 @@
-import React from 'react'
-import ShowingOff from './assets/ShowingOff.jpg'
-import MJB from './assets/MJB.jpg'
-import GC from './assets/GunControl.png'
-import Palish from './assets/Palish.png'
-import SRS from './assets/SRS.png'
-import WH from './assets/W&H.png'
-import StateMachine from './assets/StateMachine.png'
-import Skin2 from './assets/skin2.png'
-import HSV from './assets/HSV.png'
-import EulerCycle from './assets/EulerCycle.png'
-import EulerExample from './assets/EulerExample.png'
-import Hangman from './assets/Hangman.png'
-import KngihtsTour from './assets/KnightsTour.png'
-import TextAnalyzer from './assets/TextAnalyzer.png'
-import AlgorithmComparison from './assets/AlgorithmComparison.png'
-
-export const Projects = () => (
-	<div>
-	    <head>
-			<title>The Projects of Gregory Campbell</title>
-		</head>
-		<body>
-		<header>
-		<h1>My Projects</h1>
-
-		<aside>Look at what I've created!</aside>
-		</header>
-
-		<br/>
-
-		<h2>This page contains the projects I've done over the past, present and future.</h2>
-
-		<br/>
-
-		<hr/>
-
-		<h4>If you want to see what I'm currently working on you can see all my updates&nbsp;
-		<a href="https://twitter.com/Gregory_Soup">Here</a> 
-		</h4>
-
-		<hr/>
-		<h3> <a href="https://github.com/gjcampbell777/python-state-machine">Python State Machine</a> </h3>
-
-		<br/>
-
-		<p>Recently while going through Godot documentation I came across a tutorial for building your own state machine with Python.
-		I've always been interested in making a stand alone state machine and state machines are a big part of game developement
-		so I figured it would be a good idea for me to check it out. After I finished the tutorial I decided to continue working on
-		and fleshing out this state machine used to emulate a locked/unlocked device.
-		You can check out my code and mess around with the state machine yourself <a href="https://github.com/gjcampbell777/python-state-machine">Here</a>.
-		</p>
-
-		<img src={StateMachine} alt="StateMachine"/>
-
-		<br/><br/>
-
-		<h3> <a href="https://github.com/gjcampbell777/python-photo-skin-detection">Python Skin Detection Algorithms</a> </h3>
-
-		<br/>
-
-		<p>In an image processing course I took in university we were tasked with replicating multiple skin detection algorithms through a python script.
-		I enjoyed working on that assignment and was fascinated by how well (or not so well) a program is able to detect things that we as humans can figure out easily.
-		It's one of the few assignments I worked on in university that I can still remember quite well so I figured I'd find it wherever I had saved it
-		and clean it up as well as make sure it can run with python3.
-		You can check out my code and run your own photos through the script by checking out the repo <a href="https://github.com/gjcampbell777/python-photo-skin-detection">Here</a>.
-		</p>
-
-		<img src={Skin2} alt="Before"/>
-
-		<p>Before going through the algorithm</p>
-
-		<br/>
-
-		<img src={HSV} alt="After"/>
-
-		<p>After going through the HSV algorithm</p>
-
-		<br/>
-
-		<h3> <a href="https://github.com/gjcampbell777/euler-checking-algorithm">Euler Checking Algorithm</a> </h3>
-
-		<br/>
-
-		<p>In a course I took in university we were tasked checking if a graph was Eulerian or not.
-		Much like the Python Skin Detection assignment this was also an assignment I could still remember
-		from those days and wanted to re-explore and improve upon.
-		This C algorithm takes the text file euler-graphs.txt and runs through the input to determine if its contents contain a Euler graph. 
-		The algorithm checks the initial line of a graph to determine the length of the graph and 
-		uses that information to know how many lines it must go through to gather all the info of the graph. 
-		It will repeat this process until it reaches EOF.
-		You can check out my code by checking out the repo <a href="https://github.com/gjcampbell777/euler-checking-algorithm">Here</a>.
-		</p>
-
-		<br/>
-
-		<img src={EulerExample} alt="EulerExample"/>
-
-		<p>Example of a graph from euler-graphs.txt</p>
-
-		<br/>
-
-		<img src={EulerCycle} alt="EulerCycle"/>
-
-		<p>Output from running the algorithm with euler-graphs.txt</p>
-
-		<br/>
-
-		<h3> <a href="https://github.com/gjcampbell777/fortran-hangman">Fortran Hangman</a> </h3>
-
-		<br/>
-
-		<p>In a legacy programming course I took in university we were tasked with updating a fortran77 hangman program to fortran95
-		as well as improving upon the code itself.
-		Much like some of the other projects above this was also an assignment I could still remember
-		from those days and wanted to re-explore and improve upon.
-		Run the executable to play a simple game of hangman. 
-		You can even use the makefile I added to generate an executable of the fortran77 version.
-		You can check out my code for this project <a href="https://github.com/gjcampbell777/fortran-hangman">Here</a>.
-		</p>
-
-		<br/>
-
-		<img src={Hangman} alt="Hangman"/>
-		<p>A very quick game of hangman</p>
-
-		<br/>
-
-		<h3> <a href="https://github.com/gjcampbell777/ada-knights-tour">Ada Kngihts Tour</a> </h3>
-
-		<br/>
-
-		<p>In a legacy programming course I took in university we were tasked with creating a program that could solve the knights tour problem using Ada.
-		Much like some of the other projects above this was also an assignment I could still remember
-		from those days and wanted to re-explore and improve upon.
-		Run the executable and follow the prompts to have the program solve the problem for you.
-		However you should try to not make the chessboard size bigger than 7 if you don't have time to spare. 
-		You can check out my code for this project <a href="https://github.com/gjcampbell777/ada-knights-tour">Here</a>.
-		</p>
-
-		<br/>
-
-		<img src={KngihtsTour} alt="KnightsTour"/>
-
-		<p>Knights tour output for a 5x5 chessboard starting at position (1,1)</p>
-
-		<br/>
-
-		<h3> <a href="https://github.com/gjcampbell777/cobol-text-analyzer">Cobol Text Analyzer</a> </h3>
-
-		<br/>
-
-		<p>In a legacy programming course I took in university we were tasked with improving upon a cobol script that
-		was full of dated coding practices.
-		Much like some of the other projects above this was also an assignment I could still remember
-		from those days and wanted to re-explore and improve upon.
-		Run the executable and tell it which textfile you wish to have analyzed to see the text stats. 
-		You can even use the makefile I added to generate an executable of the dated script. 
-		However the text file that script takes is hard coded so you will have to change some things around if you want to analyze different text with it.
-		You can check out my code for this project <a href="https://github.com/gjcampbell777/cobol-text-analyzer">Here</a>.
-		</p>
-
-		<br/>
-
-		<img src={TextAnalyzer} alt="TextAnalyzer"/>
-
-		<p>Analyzing some text from Star Wars</p>
-
-		<br/>
-
-		<h3> <a href="https://github.com/gjcampbell777/legacy-algorithm-comparison">Legacy Code Algorithm Comparison</a> </h3>
-
-		<br/>
-
-		<p>In a legacy programming course I took in university we were tasked with comparing the speeds of C, Fortran and Ada using the KMP search algorithm.
-		Much like some of the other projects above this was also an assignment I could still remember
-		from those days and wanted to re-explore and improve upon.
-		Run the executable of your choice to see the speed of that coding language. 
-		Using the makefile I created generates executables for each programming language.
-		You can check out my code for this project <a href="https://github.com/gjcampbell777/legacy-algorithm-comparison">Here</a>.
-		</p>
-
-		<br/>
-
-		<img src={AlgorithmComparison} alt="AlgorithmComparison"/>
-
-		<p>Seeing how quickly C, Fortran and Ada are all able to find "Q" in a block of text</p>
-
-		<br/>
-
-		<h3> <a href="https://gregorysoup.itch.io">My Many Games</a> </h3>
-
-		<br/>
-
-		<p>Over the course of the last decade I've made a handful of games on my own.
-		I've always been interested in game developement and I use this as a way to experiment and 
-		create games I would like to play myself. The fact that I've made all these games on my own allows me
-		to go at my own pace as well as learn every aspect there is to this type of development while still being able to put my own charm into each game I make.
-		I've worked on a fast paced endless runner 3D platformer, a 2D turn based combat puzzle and many game jam games.
-		I continue to explore and create new game ideas as they pop into my head, so be sure to be on the look out for what I make next.
-		Any game I've worked on has either been created using Unity or Godot which both utilize their own proprietary coding languages. 
-		</p>
-
-		<br/>
-
-		<img src={ShowingOff} alt="Presenting my game at a toronto indie game dev meet up"/>
-
-		<br/>
-
-		<br/>
-
-		<img src={MJB} alt="MJB"/>
-
-		<br/>
-
-		<img src={WH} alt="WH"/>
-
-		<br/>
-
-		<img src={SRS} alt="SRS"/>
-
-		<br/>
-
-		<img src={Palish} alt="Palish"/>
-
-		<br/>
-
-		<img src={GC} alt="GC"/>
-
-		<br/>
-
-		<hr />
-		
-		</body>
-	</div>
-  )
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import ProjectCard from './components/ProjectCard';
+
+// Import all project images
+import StateMachine from './assets/StateMachine.png';
+import HSV from './assets/HSV.png';
+import skin2 from './assets/skin2.png';
+import EulerExample from './assets/EulerExample.png';
+import EulerCycle from './assets/EulerCycle.png';
+import Hangman from './assets/Hangman.png';
+import KnightsTour from './assets/KnightsTour.png';
+import TextAnalyzer from './assets/TextAnalyzer.png';
+import AlgorithmComparison from './assets/AlgorithmComparison.png';
+import ShowingOff from './assets/ShowingOff.jpg';
+import MJB from './assets/MJB.jpg';
+import GunControl from './assets/GunControl.png';
+import Palish from './assets/Palish.png';
+import WH from './assets/W&H.png';
+import SRS from './assets/SRS.png';
+
+
+// Map imgName to imported images
+const imageMap = {
+  StateMachine,
+  HSV,
+  skin2,
+  EulerExample,
+  EulerCycle,
+  Hangman,
+  KnightsTour,
+  TextAnalyzer,
+  AlgorithmComparison,
+  ShowingOff,
+  MJB,
+  GunControl,
+  Palish,
+  WH,
+  SRS
+};
+
+const projects = [
+  {
+    title: 'Python State Machine',
+    link: 'https://github.com/gjcampbell777/python-state-machine',
+    description: 'A Python state machine used to emulate a locked/unlocked device.',
+    imgName: 'StateMachine',
+    imgAlt: 'Python state machine demo'
+  },
+  {
+    title: 'Python Skin Detection Algorithms',
+    link: 'https://github.com/gjcampbell777/python-photo-skin-detection',
+    description: 'Replicated multiple skin detection algorithms in Python and modernized them for Python 3.',
+    imgName: 'HSV',
+    imgAlt: 'Skin detection image after',
+  },
+  {
+    imgName: 'skin2',
+    imgAlt: 'Skin detection image before',
+  },
+  {
+    title: 'Euler Checking Algorithm',
+    link: 'https://github.com/gjcampbell777/euler-checking-algorithm',
+    description: 'C program to check if graphs are Eulerian.',
+    imgName: 'EulerExample',
+    imgAlt: 'Euler example'
+  },
+  {
+    imgName: 'EulerCycle',
+    imgAlt: 'Euler cycle output',
+  },
+  {
+    title: 'Fortran Hangman',
+    link: 'https://github.com/gjcampbell777/fortran-hangman',
+    description: 'Updated a Fortran 77 hangman game to Fortran 95 and improved the code.',
+    imgName: 'Hangman',
+    imgAlt: 'Hangman game'
+  },
+  {
+    title: "Ada Knights Tour",
+    link: 'https://github.com/gjcampbell777/ada-knights-tour',
+    description: "Solves the knight's tour problem in Ada.",
+    imgName: 'KnightsTour',
+    imgAlt: 'Knights tour output'
+  },
+  {
+    title: 'COBOL Text Analyzer',
+    link: 'https://github.com/gjcampbell777/cobol-text-analyzer',
+    description: 'Modernized COBOL text analyzer to report text statistics.',
+    imgName: 'TextAnalyzer',
+    imgAlt: 'Text analyzer output'
+  },
+  {
+    title: 'Legacy Algorithm Comparison',
+    link: 'https://github.com/gjcampbell777/legacy-algorithm-comparison',
+    description: 'Compare KMP implementations across C, Fortran, and Ada.',
+    imgName: 'AlgorithmComparison',
+    imgAlt: 'Algorithm comparison charts'
+  },
+  {
+    title: 'My Many Games',
+    description: 'A selection of games made with Unity and Godot.',
+    imgName: 'ShowingOff',
+    imgAlt: 'Game showcase'
+  },
+  {
+    imgName: 'MJB',
+    imgAlt: 'Magical Jumping Bean'
+  },
+  {
+    imgName: 'GunControl',
+    imgAlt: 'Gun Control'
+  },
+  {
+    imgName: 'Palish',
+    imgAlt: 'Palish'
+  },
+  {
+    imgName: 'WH',
+    imgAlt: 'Wally And Harv Escape the Fireball and Brick Factory'
+  },
+  {
+    imgName: 'SRS',
+    imgAlt: 'Super Robo Squad'
+  },
+];
+
+export const Projects = () => {
+
+  return (
+    <main className="projects-page">
+      <Helmet>
+        <title>The Projects of Gregory Campbell</title>
+        <meta name="description" content="Collection of projects by Gregory Campbell." />
+      </Helmet>
+      <header>
+        <h1>My Projects</h1>
+        <aside>Look at what I've created!</aside>
+      </header>
+
+      {projects.map((p) => (
+        <ProjectCard
+          key={p.title}
+          title={p.title}
+          description={p.description}
+          imgSrc={imageMap[p.imgName]}
+          imgAlt={p.imgAlt}
+          link={p.link}
+        />
+      ))}
+    </main>
+  );
+};

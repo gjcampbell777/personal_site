@@ -12,32 +12,30 @@ code {
     monospace;
 }
 
-span {
-    display: inline-block;
-    width: 15%;
-    float: right;
-}
-
-a{
+a {
   color: #000;
+  text-decoration: none;
 }
 
 a:hover {
-   color: #219837 
+  color: #219837;
 }
 
 img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
-.homeimage{
+.homeimage {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: auto;
+  max-width: 480px;
+  width: 100%;
+  height: auto;
 }
 
 .iframe-container {
@@ -58,10 +56,9 @@ img {
 .footer {
   display: flex;
   justify-content: center;
-  position: sticky;
-  top: 0;
-  color: white;
-  z-index: 1;
+  position: relative;
+  padding: 1rem 0;
+  color: #000;
 }
 
 .footer-links ul {
@@ -83,4 +80,12 @@ img {
 
 .footer-links li:hover {
   background-color: #b2b2b2;
+}
+
+/* Constrain footer images so they don't become massive */
+.footer-links img {
+  display: inline-block;
+  max-height: 120px;
+  width: auto;
+  vertical-align: middle;
 }
