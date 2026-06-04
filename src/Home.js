@@ -25,8 +25,8 @@ export const Home = () => {
 
       <section>
         <img
-          src="/images/Me-640.webp"
-          srcSet="/images/Me-320.webp 320w, /images/Me-640.webp 640w, /images/Me-1024.webp 1024w"
+          src={`${process.env.PUBLIC_URL}/images/Me-640.webp`}
+          srcSet={`${process.env.PUBLIC_URL}/images/Me-320.webp 320w, ${process.env.PUBLIC_URL}/images/Me-640.webp 640w, ${process.env.PUBLIC_URL}/images/Me-1024.webp 1024w`}
           sizes="(max-width: 600px) 100vw, 640px"
           alt="Portrait of Gregory Campbell"
           className="homeimage"
