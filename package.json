@@ -48,6 +48,9 @@
       "last 1 safari version"
     ]
   },
+  "engines": {
+    "node": "18.x"
+  },
   "devDependencies": {
     "@aws-amplify/backend": "^1.23.0",
     "@aws-amplify/backend-cli": "^1.8.3",
