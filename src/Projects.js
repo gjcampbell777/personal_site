@@ -4,24 +4,39 @@ import ProjectCard from './components/ProjectCard';
 
 // Import all project images
 import StateMachine from './assets/StateMachine.png';
+import HSV from './assets/HSV.png';
 import skin2 from './assets/skin2.png';
 import EulerExample from './assets/EulerExample.png';
+import EulerCycle from './assets/EulerCycle.png';
 import Hangman from './assets/Hangman.png';
 import KnightsTour from './assets/KnightsTour.png';
 import TextAnalyzer from './assets/TextAnalyzer.png';
 import AlgorithmComparison from './assets/AlgorithmComparison.png';
 import ShowingOff from './assets/ShowingOff.jpg';
+import MJB from './assets/MJB.jpg';
+import GunControl from './assets/GunControl.png';
+import Palish from './assets/Palish.png';
+import WH from './assets/W&H.png';
+import SRS from './assets/SRS.png';
+
 
 // Map imgName to imported images
 const imageMap = {
   StateMachine,
+  HSV,
   skin2,
   EulerExample,
+  EulerCycle,
   Hangman,
   KnightsTour,
   TextAnalyzer,
   AlgorithmComparison,
   ShowingOff,
+  MJB,
+  GunControl,
+  Palish,
+  WH,
+  SRS
 };
 
 const projects = [
@@ -36,8 +51,12 @@ const projects = [
     title: 'Python Skin Detection Algorithms',
     link: 'https://github.com/gjcampbell777/python-photo-skin-detection',
     description: 'Replicated multiple skin detection algorithms in Python and modernized them for Python 3.',
+    imgName: 'HSV',
+    imgAlt: 'Skin detection image after',
+  },
+  {
     imgName: 'skin2',
-    imgAlt: 'Skin detection before/after',
+    imgAlt: 'Skin detection image before',
   },
   {
     title: 'Euler Checking Algorithm',
@@ -45,6 +64,10 @@ const projects = [
     description: 'C program to check if graphs are Eulerian.',
     imgName: 'EulerExample',
     imgAlt: 'Euler example'
+  },
+  {
+    imgName: 'EulerCycle',
+    imgAlt: 'Euler cycle output',
   },
   {
     title: 'Fortran Hangman',
@@ -76,11 +99,30 @@ const projects = [
   },
   {
     title: 'My Many Games',
-    link: 'https://gregorysoup.itch.io',
     description: 'A selection of games made with Unity and Godot.',
     imgName: 'ShowingOff',
     imgAlt: 'Game showcase'
-  }
+  },
+  {
+    imgName: 'MJB',
+    imgAlt: 'Magical Jumping Bean'
+  },
+  {
+    imgName: 'GunControl',
+    imgAlt: 'Gun Control'
+  },
+  {
+    imgName: 'Palish',
+    imgAlt: 'Palish'
+  },
+  {
+    imgName: 'WH',
+    imgAlt: 'Wally And Harv Escape the Fireball and Brick Factory'
+  },
+  {
+    imgName: 'SRS',
+    imgAlt: 'Super Robo Squad'
+  },
 ];
 
 export const Projects = () => {
@@ -95,14 +137,6 @@ export const Projects = () => {
         <h1>My Projects</h1>
         <aside>Look at what I've created!</aside>
       </header>
-
-      <section>
-        <p>This page contains the projects I've done in the past, present and future.</p>
-        <p>
-          If you want to see what I'm currently working on, you can see all my updates{' '}
-          <a href="https://twitter.com/Gregory_Soup" target="_blank" rel="noreferrer noopener">here</a>.
-        </p>
-      </section>
 
       {projects.map((p) => (
         <ProjectCard
