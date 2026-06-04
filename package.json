@@ -5,6 +5,7 @@
   "repository": "https://github.com/gjcampbell777/personal_site.git",
   "author": "Gregory Campbell <gjcampbell777@gmail.com>",
   "license": "MIT",
+  "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.1",
     "@testing-library/react": "^11.2.5",
