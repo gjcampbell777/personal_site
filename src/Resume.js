@@ -42,7 +42,7 @@ export const Resume = () => {
         </p>
 
         <h3>Profile</h3>
-        <p>Highly motivated and team-focused software developer with 4+ years of experience developing code and creating test environments and infrastructure.</p>
+        <p>Highly motivated and team-focused software developer with 10+ years of experience developing code and creating test environments and infrastructure.</p>
 
         <h3>Education</h3>
         <p>
@@ -53,8 +53,18 @@ export const Resume = () => {
 
         <h3>Work Experience</h3>
         <article>
+          <h4>Senior Software Developer in Test</h4>
+          <p><em>Genesys Cloud Services (Performance Team)</em> · Jan 2022 - April 2026</p>
+          <ul>
+            <li>The deignated analytics team collaborator forthe entire performance team.</li>
+            <li>Taking on epics to creaed automated tests for new features being introduced to our product.</li>
+            <li>Developed and incremented up in-house testing tools.</li>
+          </ul>
+        </article>
+
+        <article>
           <h4>Software Developer</h4>
-          <p><em>Clear Blue Technologies – North York, Ontario</em> · Aug 2017 - Present</p>
+          <p><em>Clear Blue Technologies</em> · Aug 2017 - Dec 2021</p>
           <ul>
             <li>Added features and fixed issues with various controllers using the functional programming language Elixir.</li>
             <li>Built automated black box testing devices and infrastructure with controller code, Raspberry Pi, and programmable power supplies.</li>
@@ -64,7 +74,7 @@ export const Resume = () => {
 
         <article>
           <h4>Software Test Specialist</h4>
-          <p><em>IBM (AppScan Source team) – Markham, Ontario</em> · Jun 2014 - Aug 2016</p>
+          <p><em>IBM (AppScan Source team)</em> · Jun 2014 - Aug 2016</p>
           <ul>
             <li>Created a test tool in HTML and JavaScript to help developers efficiently test builds using subsets of smoke tests.</li>
             <li>Presented security findings to stakeholders, architects, and developers.</li>
@@ -75,12 +85,13 @@ export const Resume = () => {
 
         <h3>Technical Skills</h3>
         <ul>
-          <li>Programming Languages: Elixir, C, C#, Java, Python, Fortran, Ada, Cobol</li>
-          <li>Web Design and Coding: HTML, JavaScript, ReactJS, CSS, Node.js, jQuery</li>
-          <li>Software Environments: Windows, Mac, Linux, Unity, Godot, VirtualBox, Docker</li>
-          <li>Automation tools: Bash, TestCafe, ExUnit, Jenkins, GitLab CI, Python scripting</li>
-          <li>Experience with security testing, vulnerabilities, and application design in agile environments</li>
-          <li>Version control: GitHub, GitLab, Bitbucket</li>
+          <li>Programming Languages: Elixir, C, Python, YAML, Go, Rust</li>
+          <li>Software Environments: Windows, Mac, Linux, Godot, CLI, Docker, Kubernetes, AWS</li>
+          <li>Automation tools: Bash, Jenkins, Gitlab CI, Postman, Locust, Terraform</li>
+          <li>Well versed in application design, development, and testing within an agile development cycle</li>
+          <li>Profeicent in testin many different aspects of distrubted systems: micro systems, REST API, Infrastructure as Code</li>
+          <li>Expertise with data analysis and using and developing data analytics tools: New Relic, Sumologic, In-house tools</li>
+          <li>Knowledge and experience with computer security, security vulnerabilities and security testing both professionally and personally</li>
         </ul>
       </section>
     </main>

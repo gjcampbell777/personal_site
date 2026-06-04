@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import meImage from './assets/Me.jpeg';
+import meImage from './assets/Me.jpg';
 
 export const Home = () => {
   return (
