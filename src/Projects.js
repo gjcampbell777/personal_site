@@ -2,6 +2,28 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import ProjectCard from './components/ProjectCard';
 
+// Import all project images
+import StateMachine from './assets/StateMachine.png';
+import skin2 from './assets/skin2.png';
+import EulerExample from './assets/EulerExample.png';
+import Hangman from './assets/Hangman.png';
+import KnightsTour from './assets/KnightsTour.png';
+import TextAnalyzer from './assets/TextAnalyzer.png';
+import AlgorithmComparison from './assets/AlgorithmComparison.png';
+import ShowingOff from './assets/ShowingOff.jpg';
+
+// Map imgName to imported images
+const imageMap = {
+  StateMachine,
+  skin2,
+  EulerExample,
+  Hangman,
+  KnightsTour,
+  TextAnalyzer,
+  AlgorithmComparison,
+  ShowingOff,
+};
+
 const projects = [
   {
     title: 'Python State Machine',
@@ -87,7 +109,7 @@ export const Projects = () => {
           key={p.title}
           title={p.title}
           description={p.description}
-          imgSrc={p.img}
+          imgSrc={imageMap[p.imgName]}
           imgAlt={p.imgAlt}
           link={p.link}
         />
