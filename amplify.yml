@@ -4,7 +4,7 @@ applications:
       phases:
         preBuild:
           commands:
-            - npm ci
+            - npm install
             - npm run optimize-images
         build:
           commands:

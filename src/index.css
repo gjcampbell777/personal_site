@@ -56,10 +56,9 @@ img {
 .footer {
   display: flex;
   justify-content: center;
-  position: sticky;
-  top: 0;
-  color: white;
-  z-index: 1;
+  position: relative;
+  padding: 1rem 0;
+  color: #000;
 }
 
 .footer-links ul {
@@ -81,4 +80,12 @@ img {
 
 .footer-links li:hover {
   background-color: #b2b2b2;
+}
+
+/* Constrain footer images so they don't become massive */
+.footer-links img {
+  display: inline-block;
+  max-height: 120px;
+  width: auto;
+  vertical-align: middle;
 }
