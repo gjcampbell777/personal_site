@@ -1,50 +1,30 @@
-import React from 'react'
-import Me from './assets/Me.jpeg'
+import React, { useEffect } from 'react';
+import Me from './assets/Me.jpeg';
 
-export const Home = () => (
-	<div>
-	    <head>
-			<title>The Works of Gregory Campbell</title>
-		</head>
-		<body>
+export const Home = () => {
+  useEffect(() => {
+    document.title = 'The Works of Gregory Campbell';
+  }, []);
 
-		<h2>Welcome to the personal website of Gregory Campbell</h2>
+  return (
+    <main className="home-page">
+      <section>
+        <h2>Welcome to the personal website of Gregory Campbell</h2>
+        <p>I hope you enjoy everything it has to offer.</p>
+      </section>
 
-		<p>I hope you enjoy everything it has to offer</p>
+      <section>
+        <h3>Finished projects viewable on this site</h3>
+        <ul>
+          <li>This website is clean, easy to read, written in React, and adapts well to mobile.</li>
+          <li>I also added a HTML and downloadable PDF version of my resume on the Resume page.</li>
+          <li>Check out the many projects on the Projects tab.</li>
+        </ul>
+      </section>
 
-		<h3>Finished Projects Viewable on this site:</h3>
-
-		<p></p>
-
-		<ul>
-			<li>This website. It might not seem like much but it's clean, easy to read, is written in reactjs and adapts quite well to mobile.</li>
-		</ul>
-
-		<p></p>
-
-		<p></p>
-
-		<ul>
-			<li>I also added a html and downloadable .pdf version of my resume in the resume page, feel free to give it a look!</li>
-		</ul>
-
-		<p></p>
-
-		<ul>
-			<li>The many projects that I've mosted in the projects tab, go check it out!</li>
-		</ul>
-
-		<p></p>
-
-		<blockquote></blockquote>
-
-		<br/>
-
-		<img src={Me} alt="It's Me!" className="homeimage"/>
-
-		<br/>
-
-		<hr />
-		</body>
-	</div>
-  )
+      <section>
+        <img src={Me} alt="Portrait of Gregory Campbell" className="homeimage" />
+      </section>
+    </main>
+  );
+};

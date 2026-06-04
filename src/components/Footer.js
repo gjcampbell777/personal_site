@@ -4,36 +4,22 @@ import linkedin from "./../assets/LI-Logo.png";
 
 const Footer = () => {
   return (
-    <>
-      <nav className="footer">
-        <div className="footer-links">
-          <ul>
-            <li>
-              <a href="https://github.com/gjcampbell777">
-                <img
-                  src={github}
-                  alt="Github Logo"
-                  height="auto"
-                  width="100%"
-                  style={{ maxWidth: "80px" }}
-                />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/gregoryjcampbell/">
-                <img
-                  src={linkedin}
-                  alt="LinkedIn Logo"
-                  height="auto"
-                  width="100%"
-                  style={{ maxWidth: "115px" }}
-                />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </>
+    <footer className="footer">
+      <div className="footer-links">
+        <ul>
+          <li>
+            <a href="https://github.com/gjcampbell777" target="_blank" rel="noreferrer noopener">
+              <img src={github} alt="GitHub profile" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/gregoryjcampbell/" target="_blank" rel="noreferrer noopener">
+              <img src={linkedin} alt="LinkedIn profile" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
   );
 };
 

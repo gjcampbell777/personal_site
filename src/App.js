@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home } from './Home';
 import { Resume } from './Resume';
@@ -10,27 +10,21 @@ import { NavigationBar } from './components/NavigationBar';
 import { Jumbotron } from './components/Jumbotron';
 import Footer from './components/Footer';
 
-class App extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <Router>
-          <NavigationBar />
-          <Jumbotron />
-          <Layout>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/Resume" component={Resume} />
-              <Route path="/Projects" component={Projects} />
-              <Route path="/Contact" component={Contact} />
-              <Route component={NoMatch} />
-            </Switch>
-          </Layout>
-          <Footer />
-        </Router>
-      </React.Fragment>
-    );
-  }
-}
+const App = () => (
+  <Router>
+    <NavigationBar />
+    <Jumbotron />
+    <Layout>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/Resume" component={Resume} />
+        <Route path="/Projects" component={Projects} />
+        <Route path="/Contact" component={Contact} />
+        <Route component={NoMatch} />
+      </Switch>
+    </Layout>
+    <Footer />
+  </Router>
+);
 
 export default App;

@@ -1,22 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 
-export const NoMatch = () => (
-	<div>
-	    <head>
-			<title>404 ERROR</title>
-		</head>
-		<body>
-		<header>
-		<h1>404 ERROR</h1>
+export const NoMatch = () => {
+  useEffect(() => {
+    document.title = '404 Error';
+  }, []);
 
-		<aside>Hey, you shouldn't be here!</aside>
-		</header>
-
-		<br/>
-
-		<h2>Don't know how you got here but you should probably turn around and head back.</h2>
-
-		<p>There's nothing here!</p>
-		</body>
-	</div>
-  )
+  return (
+    <main className="notfound-page">
+      <header>
+        <h1>404 ERROR</h1>
+        <p>Hey, you shouldn't be here!</p>
+      </header>
+      <section>
+        <p>Don't know how you got here, but you should probably head back.</p>
+      </section>
+    </main>
+  );
+};

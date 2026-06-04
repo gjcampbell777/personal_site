@@ -12,32 +12,30 @@ code {
     monospace;
 }
 
-span {
-    display: inline-block;
-    width: 15%;
-    float: right;
-}
-
-a{
+a {
   color: #000;
+  text-decoration: none;
 }
 
 a:hover {
-   color: #219837 
+  color: #219837;
 }
 
 img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
-.homeimage{
+.homeimage {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: auto;
+  max-width: 480px;
+  width: 100%;
+  height: auto;
 }
 
 .iframe-container {

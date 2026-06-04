@@ -20,30 +20,22 @@ const Styles = styled.div`
 
 export const NavigationBar = () => (
 	<Styles>
-		<Navbar expand="lg" color='light-blue lighten-4'>
+		<Navbar expand="lg" bg="light" variant="light">
 			<Navbar.Brand as={Link} to="/">GC</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
-				<Nav classname="navbar-link">
+				<Nav className="navbar-link">
 					<Nav.Item>
-	          <Nav.Link as={Link} to="/">
-	            <Link to="/">Home</Link>
-	          </Nav.Link>
+	          <Nav.Link as={Link} to="/">Home</Nav.Link>
 	        </Nav.Item>
 	        <Nav.Item>
-	          <Nav.Link as={Link} to="/Resume">
-	            <Link to="/Resume">Resume</Link>
-	          </Nav.Link>
+	          <Nav.Link as={Link} to="/Resume">Resume</Nav.Link>
 	        </Nav.Item>
 	        <Nav.Item>
-	          <Nav.Link as={Link} to="/Projects">
-	            <Link to="/Projects">Projects</Link>
-	          </Nav.Link>
+	          <Nav.Link as={Link} to="/Projects">Projects</Nav.Link>
 	        </Nav.Item>
 	        <Nav.Item>
-	          <Nav.Link as={Link} to="/Contact">
-	            <Link to="/Contact">Contact</Link>
-	          </Nav.Link>
+	          <Nav.Link as={Link} to="/Contact">Contact</Nav.Link>
 	        </Nav.Item>
 				</Nav>
 			</Navbar.Collapse>
