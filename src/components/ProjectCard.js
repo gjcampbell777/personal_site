@@ -1,18 +1,25 @@
 import React from 'react';
 
-export const ProjectCard = ({ title, description, imgSrc, imgAlt, link, children }) => {
+export const ProjectCard = ({ title, description, imgSrc, imgName, imgAlt, link, children }) => {
+  const webpSources = imgName
+    ? `/images/${imgName}-320.webp 320w, /images/${imgName}-640.webp 640w, /images/${imgName}-1024.webp 1024w`
+    : null;
+
+  const srcFallback = imgName ? `/images/${imgName}-640.webp` : imgSrc;
+
   return (
     <article className="project-card">
-      <h3>
-        {link ? (
-          <a href={link} target="_blank" rel="noreferrer noopener">{title}</a>
-        ) : (
-          title
-        )}
-      </h3>
+      <h3>{link ? <a href={link} target="_blank" rel="noreferrer noopener">{title}</a> : title}</h3>
       <p>{description}</p>
-      {imgSrc && (
-        <img src={imgSrc} alt={imgAlt || title} loading="lazy" decoding="async" />
+      {srcFallback && (
+        <img
+          src={srcFallback}
+          srcSet={webpSources || undefined}
+          sizes="(max-width: 600px) 100vw, 640px"
+          alt={imgAlt || title}
+          loading="lazy"
+          decoding="async"
+        />
       )}
       {children}
     </article>

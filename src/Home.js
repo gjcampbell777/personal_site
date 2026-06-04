@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import Me from './assets/Me.jpeg';
 
 export const Home = () => {
   return (
@@ -25,7 +24,15 @@ export const Home = () => {
       </section>
 
       <section>
-        <img src={Me} alt="Portrait of Gregory Campbell" className="homeimage" loading="lazy" decoding="async" />
+        <img
+          src="/images/Me-640.webp"
+          srcSet="/images/Me-320.webp 320w, /images/Me-640.webp 640w, /images/Me-1024.webp 1024w"
+          sizes="(max-width: 600px) 100vw, 640px"
+          alt="Portrait of Gregory Campbell"
+          className="homeimage"
+          loading="lazy"
+          decoding="async"
+        />
       </section>
     </main>
   );
