@@ -20,11 +20,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          cache: 'npm' # Optimizes subsequent runs
           node-version: 24
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm ci --legacy-peer-deps
 
       - name: Run Linter (Optional but recommended)
         run: npm run lint --if-present
