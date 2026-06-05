@@ -22,7 +22,7 @@ const App = () => (
           <Route path="/Resume" component={Resume} />
           <Route path="/Projects" component={Projects} />
           <Route path="/Contact" component={Contact} />
-          <Route component={NoMatch} />
+          <Route component={NoMatch} id="test"/>
         </Switch>
       </Layout>
       <Footer />
