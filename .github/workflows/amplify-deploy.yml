@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           cache: 'npm' # Optimizes subsequent runs
-          node-version: 18
+          node-version: 24
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
