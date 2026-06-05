@@ -42,4 +42,4 @@ jobs:
         env:
           WEBHOOK_URL: ${{ secrets.AMPLIFY_WEBHOOK_URL }}
         run: |
-          curl -X POST -H "Content-Type: application/json" -d '{}' "$WEBHOOK_URL"
+          curl -i --fail -X POST -H "Content-Type: application/json" -d '{}' "$WEBHOOK_URL"
