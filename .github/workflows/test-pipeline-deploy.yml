@@ -1,0 +1,30 @@
+name: Test Pipeline Deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline-testing/**'
+      - '.github/workflows/test-pipeline-deploy.yml'
+  workflow_dispatch:
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install test dependencies
+        working-directory: pipeline-testing
+        run: pip install -r requirements-test.txt
+
+      - name: Run test pipeline placeholder
+        working-directory: pipeline-testing
+        run: python src/test_runner.py

@@ -1,0 +1,29 @@
+name: Go Backend Deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend-go/**'
+      - '.github/workflows/go-backend-deploy.yml'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Build Go service
+        working-directory: backend-go
+        run: go build ./cmd/api
+
+      - name: Deploy placeholder
+        run: echo "Deploy the Go backend binary to AWS Lambda or ECS from this step."
