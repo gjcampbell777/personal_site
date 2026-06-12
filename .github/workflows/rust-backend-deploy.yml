@@ -2,7 +2,7 @@ name: Rust Backend Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - 'backend-rust/**'
       - '.github/workflows/rust-backend-deploy.yml'

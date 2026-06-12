@@ -2,7 +2,7 @@ name: Python Backend Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - 'backend-python/**'
       - '.github/workflows/python-backend-deploy.yml'

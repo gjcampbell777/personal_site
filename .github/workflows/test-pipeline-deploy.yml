@@ -2,7 +2,7 @@ name: Test Pipeline Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - 'pipeline-testing/**'
       - '.github/workflows/test-pipeline-deploy.yml'
