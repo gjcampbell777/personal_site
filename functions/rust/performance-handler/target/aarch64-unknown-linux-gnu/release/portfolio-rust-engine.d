@@ -1,0 +1,1 @@
+/Users/gjcampbell/Repos/personal_site_gh/functions/rust/performance-handler/target/aarch64-unknown-linux-gnu/release/portfolio-rust-engine: /Users/gjcampbell/Repos/personal_site_gh/functions/rust/performance-handler/src/main.rs

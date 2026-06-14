@@ -1,11 +1,25 @@
 import { defineBackend } from '@aws-amplify/backend';
-import { auth } from './auth/resource';
-import { data } from './data/resource';
+import { goFunctions } from './functions/go-functions';
+import { rustFunctions } from './functions/rust-functions';
+import { pythonFunctions } from './functions/python-functions';
+import { defineData } from '@aws-amplify/backend';
+import { schema } from './data/resource';
 
-/**
- * @see https://docs.amplify.aws/react/build-a-backend/ to add storage, functions, and more
- */
-defineBackend({
-  auth,
-  data,
+const data = defineData({
+  schema,
+  authorizationModes: {
+    defaultAuthorizationMode: 'userPool',
+  },
 });
+
+const backend = defineBackend({
+  data,
+  ...goFunctions,
+  ...rustFunctions,
+  ...pythonFunctions,
+});
+
+// Export backend for use in frontend
+export default backend;
+
+

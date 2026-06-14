@@ -1,12 +1,8 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 
 export const NoMatch = () => {
   return (
-    <main className="notfound-page">
-      <Helmet>
-        <title>404 Error</title>
-      </Helmet>
+    <div className="notfound-page">
 
       <header>
         <h1>404 ERROR</h1>
@@ -15,6 +11,8 @@ export const NoMatch = () => {
       <section>
         <p>Don't know how you got here, but you should probably head back.</p>
       </section>
-    </main>
+    </div>
   );
 };
+
+export default NoMatch;
