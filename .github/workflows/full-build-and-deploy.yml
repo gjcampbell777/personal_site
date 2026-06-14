@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  frontend-build:
+  react-build:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -47,7 +47,7 @@ jobs:
       - name: Build Go service
         working-directory: functions/go/api-handler
         run: go build
-        
+
       - name: Deploy placeholder
         run: echo "Deploy the Go function to AWS Lambda from this step."
     
