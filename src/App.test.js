@@ -3,10 +3,10 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 
 // Mock the child components to isolate the App component's routing logic
-jest.mock('./pages/Home', () => ({ Home: () => <div>Mock Home</div> }));
-jest.mock('./pages/Resume', () => ({ Resume: () => <div>Mock Resume</div> }));
-jest.mock('./pages/Projects', () => ({ Projects: () => <div>Mock Projects</div> }));
-jest.mock('./pages/Contact', () => ({ Contact: () => <div>Mock Contact</div> }));
+jest.mock('./pages/Home', () => ({ __esModule: true, default: () => <div>Mock Home</div> }));
+jest.mock('./pages/Resume', () => ({ __esModule: true, default: () => <div>Mock Resume</div> }));
+jest.mock('./pages/Projects', () => ({ __esModule: true, default: () => <div>Mock Projects</div>,}));
+jest.mock('./pages/Contact', () => ({ __esModule: true, default: () => <div>Mock Contact</div> }));
 jest.mock('./404', () => ({ NoMatch: () => <div>Mock NoMatch</div> }));
 
 // Mock the layout components
