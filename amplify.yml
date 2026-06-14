@@ -1,12 +1,4 @@
 version: 1
-backend:
-  phases:
-    build:
-      commands:
-        - npm ci
-        - make build-all
-        - npx ampx pipeline-deploy --branch master --app-id $WEBSITE_APP_ID
-
 frontend:
   phases:
     preBuild:
@@ -22,3 +14,4 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+
