@@ -46,8 +46,8 @@ jobs:
 
       - name: Build Go service
         working-directory: functions/go/api-handler
-        run: go build ./cmd/api
-
+        run: go build
+        
       - name: Deploy placeholder
         run: echo "Deploy the Go function to AWS Lambda from this step."
     
