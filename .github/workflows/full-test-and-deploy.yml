@@ -1,0 +1,101 @@
+name: Full Test and Deploy
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  frontend-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Linter
+        run: npm run lint --if-present
+
+      - name: Run Tests
+        run: npm test -- --watchAll=false
+  
+  go-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Build Go service
+        working-directory: functions/go/api-handler
+        run: go build ./cmd/api
+
+      - name: Deploy placeholder
+        run: echo "Deploy the Go function to AWS Lambda from this step."
+    
+  rust-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build Rust service
+        working-directory: functions/rust/performance-handler
+        run: cargo build --release
+
+      - name: Deploy placeholder
+        run: echo "Deploy the Rust function to AWS Lambda from this step."
+    
+  python-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        working-directory: functions/python/data-processor
+        run: pip3 install -r requirements.txt
+
+      - name: Deploy placeholder
+        run: echo "Deploy the Python function to AWS Lambda with Mangum from this step."
+
+  # Deployment (Waits for manual approval after all test jobs pass)
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [frontend-test, go-test, rust-test, python-test]
+    environment: production
+
+    steps:
+      - name: Trigger webhook using curl
+        env:
+          WEBHOOK_URL: ${{ secrets.AMPLIFY_WEBHOOK_URL }}
+        run: |
+          curl -i --fail -X POST -H "Content-Type: application/json" -d '{}' "$WEBHOOK_URL"

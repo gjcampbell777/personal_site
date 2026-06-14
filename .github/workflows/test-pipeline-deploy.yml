@@ -3,9 +3,6 @@ name: Test Pipeline Deploy
 on:
   push:
     branches: [master]
-    paths:
-      - 'tests/**'
-      - '.github/workflows/test-pipeline-deploy.yml'
   workflow_dispatch:
 
 jobs:
