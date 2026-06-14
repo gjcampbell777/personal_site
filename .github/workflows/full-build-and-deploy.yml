@@ -90,7 +90,7 @@ jobs:
   # Deployment (Waits for manual approval after all build jobs pass)
   deploy:
     runs-on: ubuntu-latest
-    needs: [frontend-build, go-build, rust-build, python-build]
+    needs: [react-build, go-build, rust-build, python-build]
     environment: production
 
     steps:
