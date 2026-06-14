@@ -1,11 +1,11 @@
-name: Go Backend Deploy
+name: Go Function Deploy
 
 on:
   push:
     branches: [master]
     paths:
-      - 'backend-go/**'
-      - '.github/workflows/go-backend-deploy.yml'
+      - 'functions/go/**'
+      - '.github/workflows/go-function-deploy.yml'
   workflow_dispatch:
 
 jobs:
@@ -22,8 +22,8 @@ jobs:
           go-version: '1.22'
 
       - name: Build Go service
-        working-directory: backend-go
+        working-directory: functions/go
         run: go build ./cmd/api
 
       - name: Deploy placeholder
-        run: echo "Deploy the Go backend binary to AWS Lambda or ECS from this step."
+        run: echo "Deploy the Go function to AWS Lambda from this step."

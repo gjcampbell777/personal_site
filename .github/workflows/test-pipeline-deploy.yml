@@ -4,7 +4,7 @@ on:
   push:
     branches: [master]
     paths:
-      - 'pipeline-testing/**'
+      - 'tests/**'
       - '.github/workflows/test-pipeline-deploy.yml'
   workflow_dispatch:
 
@@ -22,9 +22,9 @@ jobs:
           python-version: '3.11'
 
       - name: Install test dependencies
-        working-directory: pipeline-testing
-        run: pip install -r requirements-test.txt
+        working-directory: tests/integration
+        run: pip3 install -r requirements-test.txt
 
       - name: Run test pipeline placeholder
-        working-directory: pipeline-testing
-        run: python src/test_runner.py
+        working-directory: tests/integration/integration_tests
+        run: python3 test_placeholder.py

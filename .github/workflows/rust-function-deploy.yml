@@ -4,7 +4,7 @@ on:
   push:
     branches: [master]
     paths:
-      - 'backend-rust/**'
+      - 'functions/rust/**'
       - '.github/workflows/rust-backend-deploy.yml'
   workflow_dispatch:
 
@@ -20,7 +20,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
 
       - name: Build Rust service
-        working-directory: backend-rust
+        working-directory: functions/rust
         run: cargo build --release
 
       - name: Deploy placeholder

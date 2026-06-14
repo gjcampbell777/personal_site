@@ -1,11 +1,11 @@
-name: Python Backend Deploy
+name: Python Function Deploy
 
 on:
   push:
     branches: [master]
     paths:
-      - 'backend-python/**'
-      - '.github/workflows/python-backend-deploy.yml'
+      - 'functions/python/**'
+      - '.github/workflows/python-function-deploy.yml'
   workflow_dispatch:
 
 jobs:
@@ -22,8 +22,8 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        working-directory: backend-python
-        run: pip install -r requirements.txt
+        working-directory: functions/python
+        run: pip3 install -r requirements.txt
 
       - name: Deploy placeholder
-        run: echo "Deploy the Python API to AWS Lambda with Mangum from this step."
+        run: echo "Deploy the Python function to AWS Lambda with Mangum from this step."
