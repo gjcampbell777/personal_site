@@ -1,25 +1,13 @@
-import { defineBackend } from '@aws-amplify/backend';
-import { goFunctions } from './functions/go-functions';
-import { rustFunctions } from './functions/rust-functions';
-import { pythonFunctions } from './functions/python-functions';
-import { defineData } from '@aws-amplify/backend';
-import { schema } from './data/resource';
+import { defineBackend } from '@aws-amplify/backend'
+import { goFunction } from './functions/go/resource.ts'
+import { pythonFunction } from './functions/python/resource.ts'
+import { rustFunction } from './functions/rust/resource.ts'
 
-const data = defineData({
-  schema,
-  authorizationModes: {
-    defaultAuthorizationMode: 'userPool',
-  },
-});
+defineBackend({
+  goFunction,
+  pythonFunction,
+  rustFunction
+})
 
-const backend = defineBackend({
-  data,
-  ...goFunctions,
-  ...rustFunctions,
-  ...pythonFunctions,
-});
-
-// Export backend for use in frontend
-export default backend;
 
 
