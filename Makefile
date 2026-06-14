@@ -41,79 +41,82 @@ build-go: $(DIST_DIR)
 	@if ! command -v go >/dev/null 2>&1; then \
 		echo "⚠️  Go not found, skipping Go functions..."; \
 		exit 0; \
-	fi; \
-	@echo "🔨 Building Go functions..."
-	@for func_main in $(GO_FUNCTIONS); do \
-		func_dir=$$(dirname $$func_main); \
-		func_name=$$(basename $$func_dir); \
-		echo "  Building Go function: $$func_name"; \
-		cd $$func_dir && \
-		GOOS=linux GOARCH=arm64 go build -o bootstrap main.go && \
-		zip -r ../../../$(DIST_DIR)/go/$$func_name.zip bootstrap && \
-		rm bootstrap && \
-		cd - > /dev/null; \
-	done
-	@echo "✅ Go functions built successfully!"
+	else \
+		echo "🔨 Building Go functions..."; \
+		for func_main in $(GO_FUNCTIONS); do \
+			func_dir=$$(dirname $$func_main); \
+			func_name=$$(basename $$func_dir); \
+			echo "  Building Go function: $$func_name"; \
+			cd $$func_dir && \
+			GOOS=linux GOARCH=arm64 go build -o bootstrap main.go && \
+			zip -r ../../../$(DIST_DIR)/go/$$func_name.zip bootstrap && \
+			rm bootstrap && \
+			cd - > /dev/null; \
+		done; \
+		echo "✅ Go functions built successfully!"; \
+	fi
 
 build-rust: $(DIST_DIR)
 	@if ! command -v cargo >/dev/null 2>&1; then \
 		echo "⚠️  Cargo not found, skipping Rust functions..."; \
 		exit 0; \
-	fi; \
-	@echo "🦀 Building Rust functions..."
-	@for cargo_toml in $(RUST_FUNCTIONS); do \
-		func_dir=$$(dirname $$cargo_toml); \
-		func_name=$$(basename $$func_dir); \
-		echo "  Building Rust function: $$func_name"; \
-		cd $$func_dir && \
-		if command -v cargo-lambda >/dev/null 2>&1; then \
-			echo "    Using cargo-lambda..."; \
-			cargo lambda build --release --arm64; \
-			if [ -f "target/lambda/$$func_name/bootstrap" ]; then \
-				cp target/lambda/$$func_name/bootstrap .; \
-			elif [ -f "target/lambda/release/bootstrap" ]; then \
-				cp target/lambda/release/bootstrap .; \
+	else \
+		echo "🦀 Building Rust functions..."; \
+		for cargo_toml in $(RUST_FUNCTIONS); do \
+			func_dir=$$(dirname $$cargo_toml); \
+			func_name=$$(basename $$func_dir); \
+			echo "  Building Rust function: $$func_name"; \
+			cd $$func_dir && \
+			if command -v cargo-lambda >/dev/null 2>&1; then \
+				echo "    Using cargo-lambda..."; \
+				cargo lambda build --release --arm64; \
+				if [ -f "target/lambda/$$func_name/bootstrap" ]; then \
+					cp target/lambda/$$func_name/bootstrap .; \
+				elif [ -f "target/lambda/release/bootstrap" ]; then \
+					cp target/lambda/release/bootstrap .; \
+				else \
+					echo "    Searching for bootstrap binary..."; \
+					find target -name "bootstrap" -type f | head -1 | xargs -I {} cp {} .; \
+				fi; \
 			else \
-				echo "    Searching for bootstrap binary..."; \
-				find target -name "bootstrap" -type f | head -1 | xargs -I {} cp {} .; \
-			fi; \
-		else \
-			echo "    Using regular cargo build..."; \
-			cargo build --release; \
-			cp target/release/$$func_name bootstrap; \
-		fi && \
-		if [ ! -f bootstrap ]; then \
-			echo "    ❌ Bootstrap binary not found!"; \
-			ls -la target/ || true; \
-			exit 1; \
-		fi && \
-		zip -r ../../../$(DIST_DIR)/rust/$$func_name.zip bootstrap && \
-		rm bootstrap && \
-		cd - > /dev/null; \
-	done
-	@echo "✅ Rust functions built successfully!"
+				echo "    Using regular cargo build..."; \
+				cargo build --release; \
+				cp target/release/$$func_name bootstrap; \
+			fi && \
+			if [ ! -f bootstrap ]; then \
+				echo "    ❌ Bootstrap binary not found!"; \
+				ls -la target/ || true; \
+				exit 1; \
+			fi && \
+			zip -r ../../../$(DIST_DIR)/rust/$$func_name.zip bootstrap && \
+			rm bootstrap && \
+			cd - > /dev/null; \
+		done; \
+		echo "✅ Rust functions built successfully!"; \
+	fi
 
 build-python: $(DIST_DIR)
 	@if [ -z "$(PYTHON)" ]; then \
 		echo "⚠️  Python not found, skipping Python functions..."; \
 		exit 0; \
-	fi; \
-	@echo "🐍 Building Python functions..."
-	@for func_py in $(PYTHON_FUNCTIONS); do \
-		func_dir=$$(dirname $$func_py); \
-		func_name=$$(basename $$func_dir); \
-		echo "  Building Python function: $$func_name"; \
-		cd $$func_dir && \
-		if [ -f requirements.txt ] && [ -n "$(PIP)" ]; then \
-			echo "    Installing Python dependencies..."; \
-			$(PIP) install -r requirements.txt -t . --quiet; \
-		elif [ -f requirements.txt ]; then \
-			echo "    ⚠️  pip not found, skipping dependency installation"; \
-		fi && \
-		zip -r ../../../$(DIST_DIR)/python/$$func_name.zip . -x "*.pyc" "__pycache__/*" "*.git*" && \
-		cd - > /dev/null; \
-	done
-	@echo "✅ Python functions built successfully!"
+	else \
+		echo "🐍 Building Python functions..."; \
+		for func_py in $(PYTHON_FUNCTIONS); do \
+			func_dir=$$(dirname $$func_py); \
+			func_name=$$(basename $$func_dir); \
+			echo "  Building Python function: $$func_name"; \
+			cd $$func_dir && \
+			if [ -f requirements.txt ] && [ -n "$(PIP)" ]; then \
+				echo "    Installing Python dependencies..."; \
+				$(PIP) install -r requirements.txt -t . --quiet; \
+			elif [ -f requirements.txt ]; then \
+				echo "    ⚠️  pip not found, skipping dependency installation"; \
+			fi && \
+			zip -r ../../../$(DIST_DIR)/python/$$func_name.zip . -x "*.pyc" "__pycache__/*" "*.git*" && \
+			cd - > /dev/null; \
+		done; \
+		echo "✅ Python functions built successfully!"; \
+	fi
 
 build-all: check-deps clean build-go build-rust build-python
 	@echo "🎉 All available functions built successfully!"
