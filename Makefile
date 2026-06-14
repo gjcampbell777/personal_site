@@ -41,7 +41,7 @@ build-go: $(DIST_DIR)
 	@if ! command -v go >/dev/null 2>&1; then \
 		echo "⚠️  Go not found, skipping Go functions..."; \
 		exit 0; \
-	fi
+	fi; \
 	@echo "🔨 Building Go functions..."
 	@for func_main in $(GO_FUNCTIONS); do \
 		func_dir=$$(dirname $$func_main); \
@@ -59,7 +59,7 @@ build-rust: $(DIST_DIR)
 	@if ! command -v cargo >/dev/null 2>&1; then \
 		echo "⚠️  Cargo not found, skipping Rust functions..."; \
 		exit 0; \
-	fi
+	fi; \
 	@echo "🦀 Building Rust functions..."
 	@for cargo_toml in $(RUST_FUNCTIONS); do \
 		func_dir=$$(dirname $$cargo_toml); \
@@ -97,7 +97,7 @@ build-python: $(DIST_DIR)
 	@if [ -z "$(PYTHON)" ]; then \
 		echo "⚠️  Python not found, skipping Python functions..."; \
 		exit 0; \
-	fi
+	fi; \
 	@echo "🐍 Building Python functions..."
 	@for func_py in $(PYTHON_FUNCTIONS); do \
 		func_dir=$$(dirname $$func_py); \
