@@ -5,7 +5,7 @@ backend:
       commands:
         - npm ci
         - make build-all
-        - npx ampx pipeline-deploy --branch master --app-id $AWS_APP_ID
+        - npx ampx pipeline-deploy --branch master --app-id $WEBSITE_APP_ID
 
 frontend:
   phases:
