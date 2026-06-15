@@ -8,8 +8,6 @@ env:
     PYTHON_VERSION: "3.9"
     # Go version for Lambda functions
     GO_VERSION: "1.21"
-    # Rust version for Lambda functions
-    RUST_VERSION: "1.75.0"
 
 phases:
   install:
@@ -23,7 +21,7 @@ phases:
       # Install Rust
       - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
       - source $HOME/.cargo/env
-      - rustup default $RUST_VERSION
+      - rustup update stable
       - rustc --version
       - cargo --version
       
