@@ -2,12 +2,13 @@ version: 0.2
 
 env:
   variables:
-    # Node.js version for React and infrastructure
+    # Runtime versions
     NODE_VERSION: "18"
-    # Python version for Lambda functions
     PYTHON_VERSION: "3.9"
-    # Go version for Lambda functions
     GO_VERSION: "1.21"
+    # Build configuration
+    BUILD_ENV: "production"
+    RUST_BACKTRACE: "1"
 
 phases:
   install:
@@ -18,126 +19,170 @@ phases:
     commands:
       - echo "Installing build dependencies..."
       
-      # Install Rust
-      - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-      - source $HOME/.cargo/env
-      - rustup update stable
-      - rustc --version
-      - cargo --version
+      # Install Rust with error handling
+      - |
+        if ! command -v rustc &> /dev/null; then
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          source $HOME/.cargo/env
+          rustup update stable
+        fi
       
       # Install AWS CDK globally
-      - npm install -g aws-cdk
+      - npm install -g aws-cdk@latest
       
-      # Verify all runtime versions
+      # Verify runtime versions
+      - echo "=== Runtime Versions ==="
       - node --version
       - npm --version
       - python3 --version
       - go version
-      - rustc --version
+      - rustc --version || echo "Rust not available"
+      - cdk --version
 
   pre_build:
     commands:
-      - echo "Pre-build phase started on `date`"
+      - echo "Pre-build phase started on $(date)"
       
-      # Install React dependencies
+      # Install React dependencies with clean install
       - echo "Installing React dependencies..."
-      - npm ci
+      - npm ci --prefer-offline --no-audit
       
       # Install Python dependencies for Lambda functions
-      - echo "Installing Python dependencies..."
-      - cd functions/python
-      - pip3 install -r requirements.txt --target .
-      - cd ../..
+      - |
+        if [ -d "functions/python" ] && [ -f "functions/python/requirements.txt" ]; then
+          echo "Installing Python dependencies..."
+          cd functions/python
+          pip3 install -r requirements.txt --target . --upgrade --no-cache-dir
+          cd ../..
+        else
+          echo "No Python Lambda function found, skipping..."
+        fi
       
       # Download Go dependencies
-      - echo "Downloading Go dependencies..."
-      - cd functions/go
-      - go mod download
-      - go mod verify
-      - cd ../..
+      - |
+        if [ -d "functions/go" ] && [ -f "functions/go/go.mod" ]; then
+          echo "Downloading Go dependencies..."
+          cd functions/go
+          go mod download
+          go mod verify
+          cd ../..
+        else
+          echo "No Go Lambda function found, skipping..."
+        fi
       
       # Check Rust dependencies
-      - echo "Checking Rust dependencies..."
-      - cd functions/rust
-      - cargo check
-      - cd ../..
-      
-      # Install CDK dependencies for infrastructure
-      - echo "Installing CDK dependencies..."
-      - npm ci
+      - |
+        if [ -d "functions/rust" ] && [ -f "functions/rust/Cargo.toml" ]; then
+          echo "Checking Rust dependencies..."
+          cd functions/rust
+          cargo check --release
+          cd ../..
+        else
+          echo "No Rust Lambda function found, skipping..."
+        fi
 
   build:
     commands:
-      - echo "Build phase started on `date`"
+      - echo "Build phase started on $(date)"
+      
+      # Run linting and code quality checks early
+      - |
+        if [ -f "package.json" ] && grep -q '"lint"' package.json; then
+          echo "Running code quality checks..."
+          npm run lint
+        fi
+      
+      # Run tests before building
+      - |
+        if [ -f "package.json" ] && grep -q '"test"' package.json; then
+          echo "Running tests..."
+          npm test -- --coverage --ci --testResultsProcessor="jest-junit" --watchAll=false
+        fi
       
       # Build React application
       - echo "Building React application..."
       - npm run build
       
+      # Build Lambda functions in parallel where possible
+      - echo "Building Lambda functions..."
+      
       # Build Go Lambda function
-      - echo "Building Go Lambda function..."
-      - cd functions/go
-      - GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags="-s -w" -o bootstrap main.go
-      - zip go-lambda.zip bootstrap
-      - cd ../..
+      - |
+        if [ -d "functions/go" ]; then
+          echo "Building Go Lambda function..."
+          cd functions/go
+          GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags="-s -w" -o bootstrap main.go
+          zip -9 go-lambda.zip bootstrap
+          cd ../..
+        fi
       
       # Build Rust Lambda function
-      - echo "Building Rust Lambda function..."
-      - cd functions/rust
-      - cargo lambda build --release
-      - cd ../..
+      - |
+        if [ -d "functions/rust" ]; then
+          echo "Building Rust Lambda function..."
+          cd functions/rust
+          if command -v cargo-lambda &> /dev/null; then
+            cargo lambda build --release
+          else
+            cargo install cargo-lambda
+            cargo lambda build --release
+          fi
+          cd ../..
+        fi
       
       # Package Python Lambda function
-      - echo "Packaging Python Lambda function..."
-      - cd functions/python
-      - zip -r ../python-lambda.zip . -x "*.pyc" "__pycache__/*"
-      - cd ../..
-      
-      # Run tests if they exist
-      - echo "Running tests..."
       - |
-        if [ -f "package.json" ] && grep -q '"test"' package.json; then
-          npm test -- --coverage --ci --testResultsProcessor="jest-junit" --watchAll=false
+        if [ -d "functions/python" ]; then
+          echo "Packaging Python Lambda function..."
+          cd functions/python
+          zip -r9 ../python-lambda.zip . -x "*.pyc" "__pycache__/*" "*.git*" "*.DS_Store*"
+          cd ../..
         fi
       
-      # Build CDK infrastructure (synthesize CloudFormation templates)
-      - echo "Building CDK infrastructure..."
-      - npx cdk synth
-      
-      # Run linting and code quality checks
-      - echo "Running code quality checks..."
-      - |
-        if [ -f "package.json" ] && grep -q '"lint"' package.json; then
-          npm run lint
-        fi
+      # Build CDK infrastructure
+      - echo "Synthesizing CDK infrastructure..."
+      - npx cdk synth --all
 
   post_build:
     commands:
-      - echo "Post-build phase started on `date`"
+      - echo "Post-build phase started on $(date)"
       
       # Create deployment package structure
-      - mkdir -p dist/react
-      - mkdir -p dist/lambdas
-      - mkdir -p dist/infrastructure
+      - mkdir -p dist/{react,lambdas,infrastructure}
       
       # Copy React build artifacts
-      - cp -r build/* dist/react/
-      
-      # Copy Lambda function packages
-      - cp functions/go/go-lambda.zip dist/lambdas/
-      - cp functions/python-lambda.zip dist/lambdas/
       - |
-        if [ -f "functions/rust/target/lambda/rust-lambda/bootstrap.zip" ]; then
-          cp functions/rust/target/lambda/rust-lambda/bootstrap.zip dist/lambdas/rust-lambda.zip
+        if [ -d "build" ]; then
+          cp -r build/* dist/react/
+        else
+          echo "No React build directory found"
         fi
       
+      # Copy Lambda function packages
+      - |
+        [ -f "functions/go/go-lambda.zip" ] && cp functions/go/go-lambda.zip dist/lambdas/
+        [ -f "functions/python-lambda.zip" ] && cp functions/python-lambda.zip dist/lambdas/
+        [ -f "functions/rust/target/lambda/rust-lambda/bootstrap.zip" ] && cp functions/rust/target/lambda/rust-lambda/bootstrap.zip dist/lambdas/rust-lambda.zip
+      
       # Copy CDK synthesized templates
-      - cp -r cdk.out/* dist/infrastructure/
+      - |
+        if [ -d "cdk.out" ]; then
+          cp -r cdk.out/* dist/infrastructure/
+        fi
       
-      # Generate build info
-      - echo "{\"buildTime\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",\"commitHash\":\"$CODEBUILD_RESOLVED_SOURCE_VERSION\"}" > dist/build-info.json
+      # Generate build metadata
+      - |
+        cat > dist/build-info.json << EOF
+        {
+          "buildTime": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+          "commitHash": "${CODEBUILD_RESOLVED_SOURCE_VERSION:-unknown}",
+          "buildId": "${CODEBUILD_BUILD_ID:-unknown}",
+          "projectName": "${CODEBUILD_BUILD_PROJECT_NAME:-unknown}",
+          "buildNumber": "${CODEBUILD_BUILD_NUMBER:-unknown}"
+        }
+        EOF
       
-      - echo "Build completed successfully on `date`"
+      - echo "Build completed successfully on $(date)"
 
 reports:
   jest_reports:
@@ -155,14 +200,14 @@ artifacts:
   files:
     - '**/*'
   base-directory: dist
-  name: personal-site-build-$(date +%Y-%m-%d-%H-%M-%S)
+  name: personal-site-build-$CODEBUILD_BUILD_NUMBER
 
 cache:
   paths:
     - node_modules/**/*
+    - ~/.npm/**/*
+    - ~/.cache/pip/**/*
+    - ~/.cargo/**/*
     - functions/go/go.mod
     - functions/go/go.sum
     - functions/rust/target/**/*
-    - ~/.cargo/**/*
-    - ~/.npm/**/*
-    - ~/.cache/pip/**/*
