@@ -20,12 +20,12 @@ phases:
       - echo "Installing build dependencies..."
       
       # Install Rust with error handling
-      - |
-        if ! command -v rustc &> /dev/null; then
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-          source $HOME/.cargo/env
-          rustup update stable
-        fi
+      #- |
+      #  if ! command -v rustc &> /dev/null; then
+      #    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+      #    source $HOME/.cargo/env
+      #    rustup update stable
+      #  fi
       
       # Install AWS CDK globally
       - npm install -g aws-cdk@latest
@@ -41,6 +41,7 @@ phases:
 
   pre_build:
     commands:
+      - set -e  # Exit on any error
       - echo "Pre-build phase started on $(date)"
       
       # Install React dependencies with clean install
